@@ -51,10 +51,12 @@ class SettingsSwitchCompatibilityTest {
     }
 
     @Test
-    fun tappingTheWholeServiceSettingRowTogglesItsSwitch() {
+    fun tappingTheWholeSettingRowTogglesItsSwitch() {
         val activity = Robolectric.buildActivity(MainActivity::class.java).setup().get()
-        val switch = activity.findViewById<SwitchCompat>(R.id.service_switch)
+        val switch = activity.findViewById<SwitchCompat>(R.id.haptics_switch)
         val row = switch.parent as View
+        switch.isEnabled = true
+        row.isEnabled = true
         val wasChecked = switch.isChecked
 
         assertTrue("The whole setting row must handle taps", row.performClick())
