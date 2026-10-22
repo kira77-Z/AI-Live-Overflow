@@ -37,7 +37,7 @@ html, body {
   position: absolute;
   z-index: 2;
   left: 50%;
-  bottom: min(78%, 190px);
+  top: 8px;
   max-width: min(92%, 240px);
   padding: 8px 12px;
   border: 2px solid rgba(36, 32, 48, .9);
