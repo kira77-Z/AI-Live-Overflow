@@ -29,6 +29,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="56dp"
+            android:showText="false"
+            android:textOff="@string/switch_state_off"
+            android:textOn="@string/switch_state_on"
             android:text="@string/service_toggle" />
 
         <com.google.android.material.materialswitch.MaterialSwitch
@@ -36,6 +39,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="56dp"
+            android:showText="false"
+            android:textOff="@string/switch_state_off"
+            android:textOn="@string/switch_state_on"
             android:text="@string/perch_toggle" />
 
         <com.google.android.material.materialswitch.MaterialSwitch
@@ -43,6 +49,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="56dp"
+            android:showText="false"
+            android:textOff="@string/switch_state_off"
+            android:textOn="@string/switch_state_on"
             android:text="@string/bubbles_toggle" />
 
         <com.google.android.material.materialswitch.MaterialSwitch
@@ -50,6 +59,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="56dp"
+            android:showText="false"
+            android:textOff="@string/switch_state_off"
+            android:textOn="@string/switch_state_on"
             android:text="@string/haptics_toggle" />
 
         <TextView
