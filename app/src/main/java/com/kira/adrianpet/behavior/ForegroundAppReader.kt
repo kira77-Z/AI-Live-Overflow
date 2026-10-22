@@ -24,8 +24,9 @@ object AppUsageAccess {
         }
     }
 
-    internal fun isModeAllowed(readMode: () -> Int): Boolean =
+    internal fun isModeAllowed(readMode: () -> Int): Boolean = runCatching {
         readMode() == AppOpsManager.MODE_ALLOWED
+    }.getOrDefault(false)
 }
 
 class ForegroundAppReader(private val context: Context) {
