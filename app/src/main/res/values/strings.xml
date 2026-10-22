@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="switch_state_on">开启</string>
+    <string name="switch_state_off">关闭</string>
     <string name="app_name">小黑豹</string>
     <string name="notification_channel_name">桌宠运行状态</string>
     <string name="notification_channel_description">让小黑豹持续陪在屏幕上</string>
