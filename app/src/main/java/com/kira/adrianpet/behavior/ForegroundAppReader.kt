@@ -15,12 +15,17 @@ data class ForegroundApp(
 object AppUsageAccess {
     fun isGranted(context: Context): Boolean {
         val appOps = context.getSystemService(AppOpsManager::class.java) ?: return false
-        return appOps.checkOpNoThrow(
-            AppOpsManager.OPSTR_GET_USAGE_STATS,
-            Process.myUid(),
-            context.packageName,
-        ) == AppOpsManager.MODE_ALLOWED
+        return isModeAllowed {
+            appOps.checkOpNoThrow(
+                AppOpsManager.OPSTR_GET_USAGE_STATS,
+                Process.myUid(),
+                context.packageName,
+            )
+        }
     }
+
+    internal fun isModeAllowed(readMode: () -> Int): Boolean =
+        readMode() == AppOpsManager.MODE_ALLOWED
 }
 
 class ForegroundAppReader(private val context: Context) {
