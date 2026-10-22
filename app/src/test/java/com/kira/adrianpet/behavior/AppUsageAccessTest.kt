@@ -15,7 +15,10 @@ class AppUsageAccessTest {
     fun platformPermissionCheckFailureDoesNotCrashTheApp() {
         val context = object : ContextWrapper(RuntimeEnvironment.getApplication()) {
             override fun getSystemService(name: String): Any? {
-                throw SecurityException("OEM AppOps service rejected the query")
+                if (name == Context.APP_OPS_SERVICE) {
+                    throw SecurityException("OEM AppOps service rejected the query")
+                }
+                return super.getSystemService(name)
             }
         }
 
