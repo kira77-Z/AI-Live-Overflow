@@ -2,7 +2,6 @@ package com.kira.adrianpet
 
 import android.view.View
 import androidx.appcompat.widget.SwitchCompat
-import com.google.android.material.materialswitch.MaterialSwitch
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
@@ -21,10 +20,10 @@ class SettingsSwitchCompatibilityTest {
     fun settingsSwitchesNeverMeasureNullStateText() {
         val activity = Robolectric.buildActivity(MainActivity::class.java).setup().get()
         val switches = listOf(
-            activity.findViewById<MaterialSwitch>(R.id.service_switch),
-            activity.findViewById<MaterialSwitch>(R.id.perch_switch),
-            activity.findViewById<MaterialSwitch>(R.id.bubbles_switch),
-            activity.findViewById<MaterialSwitch>(R.id.haptics_switch),
+            activity.findViewById<SwitchCompat>(R.id.service_switch),
+            activity.findViewById<SwitchCompat>(R.id.perch_switch),
+            activity.findViewById<SwitchCompat>(R.id.bubbles_switch),
+            activity.findViewById<SwitchCompat>(R.id.haptics_switch),
         )
 
         switches.forEach { switch ->

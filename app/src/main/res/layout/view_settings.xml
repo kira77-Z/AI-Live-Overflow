@@ -25,45 +25,129 @@
             android:text="@string/settings_subtitle"
             android:textAppearance="?attr/textAppearanceBodyMedium" />
 
-        <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/service_switch"
+        <LinearLayout
+            android:id="@+id/service_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
             android:minHeight="56dp"
-            app:showText="false"
-            android:textOff="@string/switch_state_off"
-            android:textOn="@string/switch_state_on"
-            android:text="@string/service_toggle" />
+            android:orientation="horizontal">
 
-        <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/perch_switch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="56dp"
-            app:showText="false"
-            android:textOff="@string/switch_state_off"
-            android:textOn="@string/switch_state_on"
-            android:text="@string/perch_toggle" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/service_toggle"
+                android:textAppearance="?attr/textAppearanceBodyLarge" />
 
-        <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/bubbles_switch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="56dp"
-            app:showText="false"
-            android:textOff="@string/switch_state_off"
-            android:textOn="@string/switch_state_on"
-            android:text="@string/bubbles_toggle" />
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/service_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/pet_switch_thumb"
+                android:textOff="@string/switch_state_off"
+                android:textOn="@string/switch_state_on"
+                app:showText="false"
+                app:thumbTint="@null"
+                app:track="@drawable/pet_switch_track"
+                app:trackTint="@null" />
+        </LinearLayout>
 
-        <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/haptics_switch"
+        <LinearLayout
+            android:id="@+id/perch_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
             android:minHeight="56dp"
-            app:showText="false"
-            android:textOff="@string/switch_state_off"
-            android:textOn="@string/switch_state_on"
-            android:text="@string/haptics_toggle" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/perch_toggle"
+                android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/perch_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/pet_switch_thumb"
+                android:textOff="@string/switch_state_off"
+                android:textOn="@string/switch_state_on"
+                app:showText="false"
+                app:thumbTint="@null"
+                app:track="@drawable/pet_switch_track"
+                app:trackTint="@null" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bubbles_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:minHeight="56dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/bubbles_toggle"
+                android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/bubbles_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/pet_switch_thumb"
+                android:textOff="@string/switch_state_off"
+                android:textOn="@string/switch_state_on"
+                app:showText="false"
+                app:thumbTint="@null"
+                app:track="@drawable/pet_switch_track"
+                app:trackTint="@null" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/haptics_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:minHeight="56dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/haptics_toggle"
+                android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/haptics_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/pet_switch_thumb"
+                android:textOff="@string/switch_state_off"
+                android:textOn="@string/switch_state_on"
+                app:showText="false"
+                app:thumbTint="@null"
+                app:track="@drawable/pet_switch_track"
+                app:trackTint="@null" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/usage_access_status"

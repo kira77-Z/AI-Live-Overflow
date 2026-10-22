@@ -15,8 +15,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.edit
 import androidx.core.net.toUri
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.SwitchCompat
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.materialswitch.MaterialSwitch
 import com.kira.adrianpet.behavior.AppUsageAccess
 import com.kira.adrianpet.data.OverlayPreferences
 import com.kira.adrianpet.overlay.OverlayService
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                 PermissionStep.READY -> Unit
             }
         }
-        findViewById<MaterialSwitch>(R.id.service_switch).setOnCheckedChangeListener { _, enabled ->
+        findViewById<SwitchCompat>(R.id.service_switch).setOnCheckedChangeListener { _, enabled ->
             if (updatingSwitches) return@setOnCheckedChangeListener
             if (enabled && currentPermissionStep() != PermissionStep.READY) {
                 settings?.let(::updateSwitches)
@@ -104,6 +104,10 @@ class MainActivity : AppCompatActivity() {
         bindBooleanSwitch(R.id.perch_switch, OverlayService.ACTION_SET_PERCH) { viewModel.setPerchEnabled(it) }
         bindBooleanSwitch(R.id.bubbles_switch, OverlayService.ACTION_SET_BUBBLES) { viewModel.setBubblesEnabled(it) }
         bindBooleanSwitch(R.id.haptics_switch, OverlayService.ACTION_SET_HAPTICS) { viewModel.setHapticsEnabled(it) }
+        bindSwitchRow(R.id.service_row, R.id.service_switch)
+        bindSwitchRow(R.id.perch_row, R.id.perch_switch)
+        bindSwitchRow(R.id.bubbles_row, R.id.bubbles_switch)
+        bindSwitchRow(R.id.haptics_row, R.id.haptics_switch)
         findViewById<MaterialButton>(R.id.recalibrate_button).setOnClickListener {
             sendServiceAction(OverlayService.ACTION_RESET_POSITION)
         }
@@ -125,21 +129,34 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun bindBooleanSwitch(id: Int, action: String, persist: suspend (Boolean) -> Unit) {
-        findViewById<MaterialSwitch>(id).setOnCheckedChangeListener { _, enabled ->
+        findViewById<SwitchCompat>(id).setOnCheckedChangeListener { _, enabled ->
             if (updatingSwitches) return@setOnCheckedChangeListener
             scope.launch { persist(enabled) }
             sendServiceAction(action, enabled)
         }
     }
 
+    private fun bindSwitchRow(rowId: Int, switchId: Int) {
+        val switch = findViewById<SwitchCompat>(switchId)
+        findViewById<View>(rowId).setOnClickListener {
+            if (switch.isEnabled) switch.toggle()
+        }
+    }
+
     private fun updateSwitches(saved: OverlayPreferences) {
         updatingSwitches = true
-        findViewById<MaterialSwitch>(R.id.service_switch).isChecked = saved.serviceEnabled
-        findViewById<MaterialSwitch>(R.id.perch_switch).isChecked = saved.perchEnabled
-        findViewById<MaterialSwitch>(R.id.bubbles_switch).isChecked = saved.bubblesEnabled
-        findViewById<MaterialSwitch>(R.id.haptics_switch).isChecked = saved.hapticsEnabled
+        findViewById<SwitchCompat>(R.id.service_switch).isChecked = saved.serviceEnabled
+        findViewById<SwitchCompat>(R.id.perch_switch).isChecked = saved.perchEnabled
+        findViewById<SwitchCompat>(R.id.bubbles_switch).isChecked = saved.bubblesEnabled
+        findViewById<SwitchCompat>(R.id.haptics_switch).isChecked = saved.hapticsEnabled
         listOf(R.id.perch_switch, R.id.bubbles_switch, R.id.haptics_switch, R.id.recalibrate_button).forEach { id ->
             findViewById<View>(id).isEnabled = saved.serviceEnabled
+        }
+        listOf(R.id.perch_row, R.id.bubbles_row, R.id.haptics_row).forEach { id ->
+            findViewById<View>(id).apply {
+                isEnabled = saved.serviceEnabled
+                alpha = if (saved.serviceEnabled) 1f else DISABLED_CONTROL_ALPHA
+            }
         }
         updatingSwitches = false
     }
@@ -235,5 +252,6 @@ class MainActivity : AppCompatActivity() {
 
     private companion object {
         const val KEY_NOTIFICATION_ASKED = "notification_asked"
+        const val DISABLED_CONTROL_ALPHA = 0.38f
     }
 }
