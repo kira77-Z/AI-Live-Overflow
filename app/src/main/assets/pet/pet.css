@@ -1,0 +1,74 @@
+:root {
+  color-scheme: only light;
+  background: transparent;
+  font-family: system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.pet {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: end center;
+}
+
+.sprite {
+  display: block;
+  width: min(100%, 220px);
+  height: auto;
+  object-fit: contain;
+  transform-origin: 50% 85%;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 8px;
+  max-width: min(92%, 240px);
+  padding: 8px 12px;
+  border: 2px solid rgba(36, 32, 48, .9);
+  border-radius: 16px 16px 16px 5px;
+  background: rgba(255, 250, 252, .96);
+  color: #282331;
+  font-size: 13px;
+  line-height: 1.35;
+  text-align: center;
+  overflow-wrap: anywhere;
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.bubble.is-visible { animation: bubble-in .22s ease-out forwards; }
+.state-idle .sprite { animation: breathe 3.2s ease-in-out infinite; }
+.state-blink .sprite { animation: settle .28s ease-out; }
+.state-tap .sprite { animation: tap-bounce .38s cubic-bezier(.2,.8,.3,1); }
+.state-rapid-tap .sprite { animation: rapid-wiggle .48s ease-in-out; }
+.state-drag .sprite { transform: rotate(-4deg) scale(.97); }
+.state-sleep .sprite { animation: sleep-breathe 4s ease-in-out infinite; }
+.mode-perch.state-idle .sprite { width: min(100%, 230px); animation: perch-peek 2.8s ease-in-out infinite; }
+
+@keyframes breathe { 50% { transform: translateY(-3px) scale(1.012); } }
+@keyframes settle { 50% { transform: translateY(2px) scale(.99); } }
+@keyframes tap-bounce { 35% { transform: translateY(-12px) scale(1.04,.96); } 70% { transform: translateY(2px) scale(.98,1.02); } }
+@keyframes rapid-wiggle { 20%,60% { transform: rotate(-5deg); } 40%,80% { transform: rotate(5deg); } }
+@keyframes sleep-breathe { 50% { transform: translateY(3px) scale(.99); opacity: .94; } }
+@keyframes perch-peek { 50% { transform: translateY(3px); } }
+@keyframes bubble-in { from { opacity: 0; transform: translate(-50%, 5px) scale(.96); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sprite, .bubble { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}

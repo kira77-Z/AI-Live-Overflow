@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_title"
+            android:textAppearance="?attr/textAppearanceHeadlineMedium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/settings_subtitle"
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+        <LinearLayout
+            android:id="@+id/service_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:minHeight="56dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/service_toggle"
+                android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/service_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/pet_switch_thumb"
+                android:textOff="@string/switch_state_off"
+                android:textOn="@string/switch_state_on"
+                app:showText="false"
+                app:thumbTint="@null"
+                app:track="@drawable/pet_switch_track"
+                app:trackTint="@null" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/perch_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:minHeight="56dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/perch_toggle"
+                android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/perch_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/pet_switch_thumb"
+                android:textOff="@string/switch_state_off"
+                android:textOn="@string/switch_state_on"
+                app:showText="false"
+                app:thumbTint="@null"
+                app:track="@drawable/pet_switch_track"
+                app:trackTint="@null" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bubbles_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:minHeight="56dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/bubbles_toggle"
+                android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/bubbles_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/pet_switch_thumb"
+                android:textOff="@string/switch_state_off"
+                android:textOn="@string/switch_state_on"
+                app:showText="false"
+                app:thumbTint="@null"
+                app:track="@drawable/pet_switch_track"
+                app:trackTint="@null" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/haptics_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:minHeight="56dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/haptics_toggle"
+                android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/haptics_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/pet_switch_thumb"
+                android:textOff="@string/switch_state_off"
+                android:textOn="@string/switch_state_on"
+                app:showText="false"
+                app:thumbTint="@null"
+                app:track="@drawable/pet_switch_track"
+                app:trackTint="@null" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/usage_access_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/usage_access_off"
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/usage_access_button"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/grant_usage_access" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/usage_access_hint"
+            android:textAppearance="?attr/textAppearanceBodySmall" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/recalibrate_button"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/recalibrate" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/perch_hint"
+            android:textAppearance="?attr/textAppearanceBodySmall" />
+
+    </LinearLayout>
+</ScrollView>

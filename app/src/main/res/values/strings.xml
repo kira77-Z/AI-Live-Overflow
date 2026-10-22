@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="switch_state_on">开启</string>
+    <string name="switch_state_off">关闭</string>
+    <string name="app_name">小黑豹</string>
+    <string name="notification_channel_name">桌宠运行状态</string>
+    <string name="notification_channel_description">让小黑豹持续陪在屏幕上</string>
+    <string name="notification_title">小黑豹正在陪你</string>
+    <string name="notification_body">可在这里隐藏、显示或切换趴边缘模式</string>
+    <string name="action_hide">藏起来</string>
+    <string name="action_show">叫出来</string>
+    <string name="action_perch_mode">趴边缘</string>
+    <string name="action_normal_mode">普通模式</string>
+    <string name="action_settings">悬浮窗设置</string>
+    <string name="pet_preview_description">小黑豹桌宠预览</string>
+    <string name="grant_overlay">允许显示在其他应用上层</string>
+    <string name="grant_notification">允许桌宠状态通知</string>
+    <string name="overlay_explanation">先允许“小黑豹”显示在其他应用上层，他才能从 ChatGPT 里出来陪你。只需要这项悬浮窗权限。</string>
+    <string name="notification_explanation">再允许一条安静的状态通知。Android 要求持续运行的桌宠显示它，你也能从通知里随时隐藏他。</string>
+    <string name="privacy_note">不读取屏幕，也不使用无障碍权限。你可以稍后单独开启 App 识别；识别只在本机进行，不保存或上传使用记录。</string>
+    <string name="settings_title">小黑豹</string>
+    <string name="settings_subtitle">Adrian 已经准备好陪你了</string>
+    <string name="service_toggle">让小黑豹待在桌面</string>
+    <string name="perch_toggle">趴在输入框边缘</string>
+    <string name="bubbles_toggle">互动时冒气泡</string>
+    <string name="haptics_toggle">轻触震动</string>
+    <string name="usage_access_on">App 气泡已开启</string>
+    <string name="usage_access_off">App 气泡尚未开启</string>
+    <string name="grant_usage_access">开启 App 识别</string>
+    <string name="manage_usage_access">管理 App 识别权限</string>
+    <string name="usage_access_hint">开启后，小黑豹只在本机判断你进入的 App 并冒气泡；不会保存或上传使用记录。不开启也不影响其他互动。</string>
+    <string name="recalibrate">把位置恢复到屏幕边缘</string>
+    <string name="perch_hint">提示：打开 ChatGPT 后开启“趴在输入框边缘”，再拖到合适的位置。普通模式和趴边缘模式会分别记住位置。</string>
+    <string name="welcome_title">小黑豹正在醒来</string>
+    <string name="welcome_subtitle">下一步会引导你把它放到屏幕上。</string>
+    <string name="cloud_title">爸爸送来的气泡</string>
+    <string name="cloud_email">Supabase 邮箱</string>
+    <string name="cloud_password">密码</string>
+    <string name="cloud_login">连接云端气泡</string>
+    <string name="cloud_logout">退出云端连接</string>
+    <string name="cloud_connecting">正在检查云端会话…</string>
+    <string name="cloud_signed_out">登录现有账户后，就能收到远程气泡。本地互动不受影响。</string>
+    <string name="cloud_connected">已连接：%1$s</string>
+    <string name="cloud_unconfigured">这个安装包没有配置云端地址；本地桌宠仍可正常使用。</string>
+    <string name="cloud_login_first">先在下方登录现有账户，再把小黑豹放到屏幕上。</string>
+</resources>

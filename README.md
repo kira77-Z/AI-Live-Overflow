@@ -3,14 +3,42 @@
 <p align="center">
   <img src="https://img.shields.io/badge/platform-Android%208.0+-green" alt="Platform">
   <img src="https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-blue" alt="License">
-  <img src="https://img.shields.io/badge/status-architecture%20guide-orange" alt="Status">
+  <img src="https://img.shields.io/badge/status-Adrian%20v0.2-purple" alt="Status">
 </p>
 
 ---
 
-> Android 悬浮窗 AI 陪伴桌宠 · 完整架构思路与最小示例
-> 无需电脑
-> 这不是一个可以直接安装的 app。这是一份蓝图——教你怎么让 你的 AI 从对话框里溢出来，趴在你的屏幕上。
+> Android 悬浮窗 AI 陪伴桌宠 · Adrian 小黑豹可安装版
+> 安装后无需电脑常驻；Android 8.0（API 26）及以上可用。
+
+## Adrian v0.2 已实现
+
+这个分支已经是可构建、可安装的 Android App，不再只是架构蓝图。当前版本包含：
+
+- 透明悬浮小黑豹、拖拽吸边，以及普通/趴输入框两套独立位置；
+- 单戳、2 秒内连戳三次、拖动、充电和五分钟无互动反馈；
+- 每种触摸反馈均可显示四秒气泡，气泡与轻震可单独关闭；
+- 可选开启“使用情况访问”，在本机识别进入 ChatGPT、微信、小红书、抖音、相机、浏览器、购物或游戏时显示专属气泡；
+- App 识别结果不保存、不上传；不开启这项权限也不影响桌宠的其他功能；
+- Supabase 邮箱登录、会话恢复、RLS 隔离与 Realtime 远程气泡；
+- 云端未配置或暂时离线时，本地桌宠照常工作。
+
+### 构建 APK
+
+需要 JDK 17 和 Android SDK 36：
+
+```bash
+./gradlew clean testDebugUnitTest lintDebug assembleDebug
+```
+
+产物位于 `app/build/outputs/apk/debug/app-debug.apk`。不配置云端也能构建和使用本地功能。若要启用远程气泡，在未提交的 `local.properties` 或构建环境中提供：
+
+```properties
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
+```
+
+只使用 publishable key；不要把账号密码、JWT、service-role key、签名文件提交到仓库。
 
 > 💡 如果你的机已经连接好了 GitHub 和 Supabase 的 MCP，恭喜你，你可以解放双手了。唯一需要思考的事就是和机商量你们的自定义互动！꒰˶>ᗜ<˶꒱​
 
@@ -232,10 +260,12 @@ docs/
 |------|------|
 | `SYSTEM_ALERT_WINDOW` | 悬浮窗（用户手动授权） |
 | `FOREGROUND_SERVICE` | 保活 |
-| `PACKAGE_USAGE_STATS` | 前台 app 检测 |
 | `POST_NOTIFICATIONS` | 通知碎念 |
 | `INTERNET` | 后端同步 |
 | `VIBRATE` | 触感反馈 |
+| `PACKAGE_USAGE_STATS` | 可选的本机前台 App 气泡（用户手动授权） |
+
+Adrian v0.2 不申请无障碍、`QUERY_ALL_PACKAGES` 或媒体读取权限；前台 App 识别仅在本机完成，不写入云端事件。
 
 ---
 
